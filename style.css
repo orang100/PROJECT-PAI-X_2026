@@ -650,6 +650,7 @@ nav {
 .profile-avatar {
   width: 100%;
   aspect-ratio: 3/4;
+  overflow: hidden;
   background: var(--dark-elevated);
   border: 1px solid var(--dark-border);
   display: flex;
@@ -1689,9 +1690,12 @@ footer p {
     width: 500px;
     height: 500px;
   }
-  /* Pada tablet, avatar tetap portrait penuh agar wajah terlihat */
+  /* Pada tablet, avatar portrait penuh agar seluruh wajah + sorban terlihat */
   .profile-avatar {
-    aspect-ratio: 3/4;
+    aspect-ratio: 3/4 !important;
+  }
+  .profile-avatar img {
+    object-position: center 18% !important;
   }
 }
 
@@ -1815,12 +1819,14 @@ footer p {
   .profile-stats {
     grid-template-columns: repeat(4, 1fr);
   }
-  /* Gunakan rasio portrait agar wajah tidak terpotong */
+  /* Portrait penuh agar seluruh wajah & sorban terlihat di mobile */
   .profile-avatar {
-    aspect-ratio: 4/3 !important;
+    aspect-ratio: 2/3 !important;
+    max-height: 480px;
   }
   .profile-avatar img {
-    object-position: center 8% !important;
+    object-position: center 18% !important;
+    object-fit: cover !important;
   }
 
   /* Sejarah timeline */
